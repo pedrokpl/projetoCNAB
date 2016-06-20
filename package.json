@@ -1,5 +1,5 @@
 {
-  "name": "projetoCNAB",
+  "name": "CnabApp",
   "private": true,
   "version": "0.0.0",
   "description": "Leitor e validador de arquivos CNAB",
