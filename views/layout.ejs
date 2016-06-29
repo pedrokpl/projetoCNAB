@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="CnabApp">
+<html ng-app="cnabApp">
   <head>
     <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
 
@@ -29,6 +29,7 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/estilo.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
@@ -60,7 +61,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+    <script type="text/javascript" src="/jst.js"></script>
     <!--TEMPLATES END-->
 
 
@@ -94,6 +95,9 @@
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/banco.js"></script>
+    <script src="/js/flot-data.js"></script>
+    <script src="/js/morris-data.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
