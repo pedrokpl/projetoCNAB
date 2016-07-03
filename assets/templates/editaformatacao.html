@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">FORMATAÇÕES</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                EDITA
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form role="form" ng-controller="FormatacaoEditaController as formatacaoCtrl" ng-submit="formatacaoCtrl.editar(formatacao.id)">
+                             <div class="form-group">
+                                <label>ID</label>
+                                    <p class="form-control-static">{{ formatacao.id }}</p>
+                                </div>
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" class="form-control" placeholder="Digite o nome da formatação" ng-model="formatacao.nome">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantidade de caracteres</label>
+                                <input type="number" class="form-control" placeholder="Digite o nome da formatação" ng-model="formatacao.quantidadeCaracteres">
+                            </div>
+                            <div class="form-group" ng-controller="BancoController as bancoCtrl">
+                                <label>Banco</label>
+                                <select class="form-control" ng-options="bancos.nome for bancos in bancos track by bancos.id" ng-model="formatacao.banco">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
+                                <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->

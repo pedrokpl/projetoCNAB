@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">FORMATAÇÕES</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                LISTA
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive" ng-controller="FormatacaoController as formatacaoCtrl">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Caracteres</th>
+                                <th>Banco</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rowformatacao in formatacoes">
+                                <td>{{ rowformatacao.id }}</td>
+                                <td>{{ rowformatacao.nome }}</td>
+                                <td>{{ rowformatacao.quantidadeCaracteres }}</td>
+                                <td>{{ rowformatacao.banco.nome }}</td>
+                                <th>
+                                    <p class="glyphicon glyphicon-remove-circle" ng-click="formatacaoCtrl.remover(rowformatacao.id)"></p>
+                                    <a href="/editaformatacao/{{ rowformatacao.id }}"><p class="fa fa-edit"></p></a>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+    </div>
+<!-- /.row -->

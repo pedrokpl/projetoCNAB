@@ -14,6 +14,15 @@ app.config(['$routeProvider', '$locationProvider',
         .when('/editabanco/:id', {
           templateUrl: '/templates/editabanco.html'
         })
+        .when('/listaformatacoes', {
+          templateUrl: '/templates/listaformatacoes.html'
+        })
+        .when('/novaformatacao', {
+          templateUrl: '/templates/novaformatacao.html'
+        })
+        .when('/editaformatacao/:id', {
+          templateUrl: '/templates/editaformatacao.html'
+        })
         .otherwise({
           redirectTo: '/'
         })
