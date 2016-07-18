@@ -8,16 +8,43 @@
 module.exports = {
 
   attributes: {
-	nome:{
+	nome: {
 		'type': 'text'
 	},
-	quantidadeCaracteres:{
+
+	quantidadeCaracteres: {
+		'type': 'integer'
+	},
+
+	quantidadeLinhasCabecalho: {
+		'type': 'integer'
+	},
+
+	quantidadeLinhasRodape: {
 		'type': 'integer'
 	},
 
 	//Referencia ao banco
 	banco: {
 		model: 'banco'
+	},
+
+	//Referencia ao cabecalho
+	dadosCabecalho: {
+		collection: 'dadoCabecalho',
+		via: 'formatacao'
+	},
+
+	//Referencia ao rodape
+	dadosRodape: {
+		collection: 'dadoRodape',
+		via: 'formatacao'
+	},
+
+	//Referencia ao documento
+	dadosDocumento: {
+		collection: 'dadoDocumento',
+		via: 'formatacao'
 	}
   }
 };

@@ -11,10 +11,10 @@
             <div class="panel-heading">
                 EDITA
             </div>
-            <div class="panel-body">
+            <div class="panel-body" ng-controller="FormatacaoEditaController as formatacaoCtrl" >
                 <div class="row">
                     <div class="col-lg-6">
-                        <form role="form" ng-controller="FormatacaoEditaController as formatacaoCtrl" ng-submit="formatacaoCtrl.editar(formatacao.id)">
+                        <form role="form" ng-submit="formatacaoCtrl.editar(formatacao.id)">
                              <div class="form-group">
                                 <label>ID</label>
                                     <p class="form-control-static">{{ formatacao.id }}</p>
@@ -26,6 +26,14 @@
                             <div class="form-group">
                                 <label>Quantidade de caracteres</label>
                                 <input type="number" class="form-control" placeholder="Digite o nome da formatação" ng-model="formatacao.quantidadeCaracteres">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantidade de linhas do cabeçalho</label>
+                                <input type="number" class="form-control" placeholder="Digite a quantidade de linhas do cabeçalho" ng-model="formatacao.quantidadeLinhasCabecalho">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantidade de linhas do rodapé</label>
+                                <input type="number" class="form-control" placeholder="Digite a quantidade de linhas do rodapé" ng-model="formatacao.quantidadeLinhasRodape">
                             </div>
                             <div class="form-group" ng-controller="BancoController as bancoCtrl">
                                 <label>Banco</label>
@@ -39,6 +47,37 @@
                         </form>
                     </div>
                     <!-- /.col-lg-6 (nested) -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form role="form" ng-controller="DadoCabecalhoInsertController as dadoCabecalhoCtrl" ng-submit="dadoCabecalhoCtrl.criar()">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="hidden" class="form-control" value="{{formatacao.id}}" ng-model="dadoCabecalhoCtrl.dadoCabecalho.formatacao">
+                                <input type="text" class="form-control" placeholder="Digite o nome" ng-model="dadoCabecalhoCtrl.dadoCabecalho.nome">
+                            </div>
+                            <div class="form-group">
+                                <label>linha</label>
+                                <input type="number" class="form-control" placeholder="Digite a linha" ng-model="dadoCabecalhoCtrl.dadoCabecalho.linha">
+                            </div>
+                            <div class="form-group">
+                                <label>Caracter inicial</label>
+                                <input type="number" class="form-control" placeholder="Digite o caracter inicial" ng-model="dadoCabecalhoCtrl.dadoCabecalho.caracterInicial">
+                            </div>
+                            <div class="form-group">
+                                <label>Caracter final</label>
+                                <input type="text" class="form-control" placeholder="Digite o caracter final" ng-model="dadoCabecalhoCtrl.dadoCabecalho.caracterFinal">
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo do dado</label>
+                                <input type="text" class="form-control" placeholder="Digite o tipo do dado" ng-model="dadoCabecalhoCtrl.dadoCabecalho.tipoDoDado">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
+                                <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <!-- /.row (nested) -->
             </div>

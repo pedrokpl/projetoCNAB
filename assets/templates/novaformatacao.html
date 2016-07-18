@@ -23,6 +23,14 @@
                                 <label>Quantidade de caracteres</label>
                                 <input type="number" class="form-control" placeholder="Digite a quantidade de caracteres" ng-model="formatacaoCtrl.formatacao.quantidadeCaracteres">
                             </div>
+                            <div class="form-group">
+                                <label>Quantidade de linhas do cabeçalho</label>
+                                <input type="number" class="form-control" placeholder="Digite a quantidade de linhas do cabeçalho" ng-model="formatacaoCtrl.formatacao.quantidadeLinhasCabecalho">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantidade de linhas do rodapé</label>
+                                <input type="number" class="form-control" placeholder="Digite a quantidade de linhas do rodapé" ng-model="formatacaoCtrl.formatacao.quantidadeLinhasRodape">
+                            </div>
                             <div class="form-group" ng-controller="BancoController as bancoCtrl">
                                 <label>Banco</label>
                                 <select class="form-control" ng-options="bancos.nome for bancos in bancos track by bancos.id" ng-model="formatacaoCtrl.formatacao.banco">
