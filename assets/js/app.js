@@ -23,6 +23,9 @@ app.config(['$routeProvider', '$locationProvider',
         .when('/editaformatacao/:id', {
           templateUrl: '/templates/editaformatacao.html'
         })
+        .when('/configuraFormatacao/:id', {
+          templateUrl: '/templates/configuraFormatacao.html'
+        })
         .otherwise({
           redirectTo: '/'
         })

@@ -41,4 +41,8 @@ app.controller('FormatacaoEditaController', ['$http', '$routeParams', '$scope', 
 			$location.path('/listaformatacoes');
 		});
 	};
+
+	this.configurar = function(id){
+		$location.path('/configuraFormatacao/' + id);
+	};
 }]);
