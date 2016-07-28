@@ -22,6 +22,7 @@ app.controller('DadoCabecalhoController',['$scope', '$rootScope', '$http', '$loc
 		}
 		$scope.dadosCabecalho.push($scope.thisDadoCabecalho.dadoCabecalho);
 		$scope.thisDadoCabecalho.dadoCabecalho = {};
+		this.dadoCabecalho.formatacao = $routeParams.id;
 	};
 
 	this.editar = function(id){
