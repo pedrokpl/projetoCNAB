@@ -12,9 +12,9 @@
                 CABEÇALHO
             </div>
             <div class="panel-body">
-                <div class="row">
+                <div class="row" ng-controller="DadoCabecalhoController as dadoCabecalhoCtrl">
                     <div class="col-lg-6">
-                        <form role="form" ng-controller="DadoCabecalhoController as dadoCabecalhoCtrl" ng-submit="dadoCabecalhoCtrl.criar()">
+                        <form role="form" ng-submit="dadoCabecalhoCtrl.criar()">
                             <div class="form-group">
                                 <label>Nome</label>
                                 <input type="text" class="form-control" placeholder="Digite o nome" ng-model="dadoCabecalhoCtrl.dadoCabecalho.nome">
@@ -41,7 +41,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-lg-6" ng-controller="DadoCabecalhoController as dadosCabecalhoCtrl">
+                    <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Dados
@@ -57,15 +57,20 @@
                                                 <th>Inicio</th>
                                                 <th>Fim</th>
                                                 <th>Tipo</th>
+                                                <th>Ação</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="dado in dadosCabecalho">
+                                            <tr ng-repeat="dado in dadosCabecalho track by dado.id">
                                                 <td>{{dado.nome}}</td>
                                                 <td>{{dado.linha}}</td>
                                                 <td>{{dado.caracterInicial}}</td>
                                                 <td>{{dado.caracterFinal}}</td>
                                                 <td>{{dado.tipoDoDado}}</td>
+                                                <td>
+													<p class="glyphicon glyphicon-remove-circle" ng-click="dadoCabecalhoCtrl.remover(dado.id)"></p>
+													<p class="fa fa-edit" ng-click="dadoCabecalhoCtrl.carregar(dado)"></p>
+												</td>
                                             </tr>
                                         </tbody>
                                     </table>
