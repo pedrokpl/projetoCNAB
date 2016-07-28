@@ -14,13 +14,13 @@ app.controller('DadoCabecalhoController',['$scope', '$rootScope', '$http', '$loc
 		if($scope.thisDadoCabecalho.dadoCabecalho.id == null){
 			$http.post('/dadoCabecalho/create', this.dadoCabecalho).success(function(resp){
 				console.log('Criado!');
+				$scope.dadosCabecalho.push(resp);
 			});
 		}else{
 			$http.put('/dadoCabecalho/' + this.dadoCabecalho.id, this.dadoCabecalho).success(function(resp){
 				console.log('Editado!');
 			});
 		}
-		$scope.dadosCabecalho.push($scope.thisDadoCabecalho.dadoCabecalho);
 		$scope.thisDadoCabecalho.dadoCabecalho = {};
 	};
 
