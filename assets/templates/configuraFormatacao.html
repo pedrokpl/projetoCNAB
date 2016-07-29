@@ -92,7 +92,7 @@
     </div>
     <!-- /.col-lg-12 -->
 	<!-- FIM - CABECALHO -->
-		<!-- INICIO - CABECALHO -->
+	<!-- INICIO - RODAPÉ -->
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -177,6 +177,92 @@
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
-	<!-- FIM - CABECALHO -->
+	<!-- FIM - RODAPÉ -->
+	<!-- INICIO - DOCUMENTO -->
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                DOCUMENTO
+            </div>
+            <div class="panel-body">
+                <div class="row" ng-controller="DadoDocumentoController as dadoDocumentoCtrl">
+                    <div class="col-lg-6">
+                        <form role="form" ng-submit="dadoDocumentoCtrl.criar()">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" class="form-control" placeholder="Digite o nome" ng-model="dadoDocumentoCtrl.dadoDocumento.nome">
+                            </div>
+                            <div class="form-group">
+                                <label>linha</label>
+                                <input type="number" class="form-control" placeholder="Digite a linha" ng-model="dadoDocumentoCtrl.dadoDocumento.linha">
+                            </div>
+                            <div class="form-group">
+                                <label>Caracter inicial</label>
+                                <input type="number" class="form-control" placeholder="Digite o caracter inicial" ng-model="dadoDocumentoCtrl.dadoDocumento.caracterInicial">
+                            </div>
+                            <div class="form-group">
+                                <label>Caracter final</label>
+                                <input type="text" class="form-control" placeholder="Digite o caracter final" ng-model="dadoDocumentoCtrl.dadoDocumento.caracterFinal">
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo do dado</label>
+                                <input type="text" class="form-control" placeholder="Digite o tipo do dado" ng-model="dadoDocumentoCtrl.dadoDocumento.tipoDoDado">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
+                                <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Dados
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Linha</th>
+                                                <th>Inicio</th>
+                                                <th>Fim</th>
+                                                <th>Tipo</th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="dado in dadosDocumento track by dado.id">
+                                                <td>{{dado.nome}}</td>
+                                                <td>{{dado.linha}}</td>
+                                                <td>{{dado.caracterInicial}}</td>
+                                                <td>{{dado.caracterFinal}}</td>
+                                                <td>{{dado.tipoDoDado}}</td>
+                                                <td>
+													<p class="glyphicon glyphicon-remove-circle" ng-click="dadoDocumentoCtrl.remover(dado.id)"></p>
+													<p class="fa fa-edit" ng-click="dadoDocumentoCtrl.carregar(dado)"></p>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+	<!-- FIM - DOCUMENTO -->
 </div>
 <!-- /.row -->
