@@ -10,6 +10,12 @@ app.controller('DadoCabecalhoController',['$scope', '$rootScope', '$http', '$loc
 		$scope.dadosCabecalho = resp.dadosCabecalho;
 	});
 
+	this.buscar = function(){
+		$http.get('/formatacao/' + $routeParams.id).success(function(resp){
+			$scope.dadosCabecalho = resp.dadosCabecalho;
+		});
+	}
+
 	this.criar = function(){
 		if($scope.thisDadoCabecalho.dadoCabecalho.id == null){
 			$http.post('/dadoCabecalho/create', this.dadoCabecalho).success(function(resp){
@@ -35,7 +41,7 @@ app.controller('DadoCabecalhoController',['$scope', '$rootScope', '$http', '$loc
 	this.remover = function(id){
 		$http.delete('/dadoCabecalho/' + id).success(function (resp){
 			console.log('apagado');
-			$scope.dadosCabecalho.splice($scope.dadosCabecalho.indexOf(resp), 1);
+			$scope.thisDadoCabecalho.buscar();
 		});
 	};
 	

@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('FormatacaoController',['$scope', '$rootScope', '$http', '$location', function($scope, $rootScope, $http, $location){
+	$scope.thisFormatacao = this;
 	this.formatacao = {};
 	$scope.formatacoes = [];
 	
@@ -8,10 +9,16 @@ app.controller('FormatacaoController',['$scope', '$rootScope', '$http', '$locati
 		$scope.formatacoes = resp;
 	});
 
+	this.buscar = function(){
+		$http.get('/formatacao/').success(function(resp){
+			$scope.formatacoes = resp;
+		});
+	}
+
 	this.remover = function(id){
 		$http.delete('/formatacao/' + id).success(function (resp){
 			console.log('apagado');
-			$scope.formatacoes.splice($scope.formatacoes.indexOf(resp), 1);
+			$scope.thisFormatacao.buscar();
 		});
 	};
 }]);

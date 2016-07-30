@@ -10,6 +10,12 @@ app.controller('DadoDocumentoController',['$scope', '$rootScope', '$http', '$loc
 		$scope.dadosDocumento = resp.dadosDocumento;
 	});
 
+	this.buscar = function(){
+		$http.get('/formatacao/' + $routeParams.id).success(function(resp){
+			$scope.dadosDocumento = resp.dadosDocumento;
+		});
+	}
+
 	this.criar = function(){
 		if($scope.thisDadoDocumento.dadoDocumento.id == null){
 			$http.post('/dadoDocumento/create', this.dadoDocumento).success(function(resp){
@@ -36,7 +42,7 @@ app.controller('DadoDocumentoController',['$scope', '$rootScope', '$http', '$loc
 	this.remover = function(id){
 		$http.delete('/dadoDocumento/' + id).success(function (resp){
 			console.log('apagado');
-			$scope.dadosDocumento.splice($scope.dadosDocumento.indexOf(resp), 1);
+			$scope.thisDadoDocumento.buscar();
 		});
 	};
 	

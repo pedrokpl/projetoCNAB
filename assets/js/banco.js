@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('BancoController',['$scope', '$rootScope', '$http', '$location', function($scope, $rootScope, $http, $location){
+	$scope.thisBanco = this;
 	this.banco = {};
 	$scope.bancos = [];
 	
@@ -8,10 +9,16 @@ app.controller('BancoController',['$scope', '$rootScope', '$http', '$location', 
 		$scope.bancos = resp;
 	});
 
+	this.buscar = function(){
+		$http.get('/banco/').success(function(resp){
+			$scope.bancos = resp;
+		});
+	}
+
 	this.remover = function(id){
 		$http.delete('/banco/' + id).success(function (resp){
 			console.log('apagado');
-			$scope.bancos.splice($scope.bancos.indexOf(resp), 1);
+			$scope.thisBanco.buscar();
 		});
 	};
 }]);

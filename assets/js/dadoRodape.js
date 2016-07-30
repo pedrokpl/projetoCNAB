@@ -10,6 +10,12 @@ app.controller('DadoRodapeController',['$scope', '$rootScope', '$http', '$locati
 		$scope.dadosRodape = resp.dadosRodape;
 	});
 
+	this.buscar = function(){
+		$http.get('/formatacao/' + $routeParams.id).success(function(resp){
+			$scope.dadosRodape = resp.dadosRodape;
+		});
+	}
+
 	this.criar = function(){
 		if($scope.thisDadoRodape.dadoRodape.id == null){
 			$http.post('/dadoRodape/create', this.dadoRodape).success(function(resp){
@@ -36,7 +42,7 @@ app.controller('DadoRodapeController',['$scope', '$rootScope', '$http', '$locati
 	this.remover = function(id){
 		$http.delete('/dadoRodape/' + id).success(function (resp){
 			console.log('apagado');
-			$scope.dadosRodape.splice($scope.dadosRodape.indexOf(resp), 1);
+			$scope.thisDadoRodape.buscar();
 		});
 	};
 	
