@@ -26,6 +26,9 @@ app.config(['$routeProvider', '$locationProvider',
         .when('/configuraFormatacao/:id', {
           templateUrl: '/templates/configuraFormatacao.html'
         })
+        .when('/valida', {
+          templateUrl: '/templates/valida.html'
+        })
         .otherwise({
           redirectTo: '/'
         })
