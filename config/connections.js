@@ -28,10 +28,11 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
+  /*
   localDiskDb: {
     adapter: 'sails-disk'
   },
-
+  */
   /***************************************************************************
   *                                                                          *
   * MySQL is the world's most popular relational database.                   *
@@ -88,5 +89,12 @@ module.exports.connections = {
   * More adapters: https://github.com/balderdashy/sails                      *
   *                                                                          *
   ***************************************************************************/
+  sailsMSSQLServer: {
+    adapter: 'sails-mssql',
+    user: 'pedro',
+    password: 'kmkoo998',
+    host: 'PC-PEDRO',
+    database: 'CNAB'
+  }
 
 };

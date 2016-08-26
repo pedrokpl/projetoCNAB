@@ -9,9 +9,8 @@ module.exports = {
 
   attributes: {
 	nome: {
-		'type': 'text'
+		type: 'text'
 	},
-	
 	// referencia as formatacoes
 	formatacoes: {
 		collection: 'formatacao',

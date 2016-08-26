@@ -11,15 +11,8 @@ module.exports = {
   	arquivo: {
   		'type': 'string'
   	},
-  	//Referencia ao banco
-	banco: {
-		collection: 'banco',
-		via: 'banco'
-	},
-	//Referencia à formatacao
 	formatacao: {
-		collection: 'formatacao',
-		via: 'formatacao'
+		model: 'formatacao'
 	}
   }
 };
