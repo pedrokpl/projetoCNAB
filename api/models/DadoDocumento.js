@@ -8,29 +8,37 @@
 module.exports = {
 
   attributes: {
+	id:{
+		type: 'integere',
+		primaryKey: true
+	},
 	nome:{
-		'type': 'text'
+		type: 'text'
 	},
 
 	linha: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	caracterInicial: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	caracterFinal: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	tipoDoDado: {
-		'type': 'text'
+		type: 'text'
 	},
 
 	//Referencia a formatacao
 	formatacao: {
 		model: 'formatacao'
 	}
-  }
+  },
+
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false
 };

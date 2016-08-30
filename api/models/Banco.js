@@ -8,6 +8,10 @@
 module.exports = {
 
   attributes: {
+	id: {
+		type: 'integer',
+		primaryKey: true
+	},
 	nome: {
 		type: 'text'
 	},
@@ -16,6 +20,10 @@ module.exports = {
 		collection: 'formatacao',
 		via: 'banco'
 	}
-  }
+  },
+  
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false
 };
 

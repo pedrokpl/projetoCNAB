@@ -8,20 +8,24 @@
 module.exports = {
 
   attributes: {
+  	id: {
+  		type: 'integer',
+  		primaryKey: true
+  	},
 	nome: {
-		'type': 'text'
+		type: 'text'
 	},
 
 	quantidadeCaracteres: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	quantidadeLinhasCabecalho: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	quantidadeLinhasRodape: {
-		'type': 'integer'
+		type: 'integer'
 	},
 
 	//Referencia ao banco
@@ -46,6 +50,10 @@ module.exports = {
 		collection: 'dadoDocumento',
 		via: 'formatacao'
 	}
-  }
+  },
+
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false
 };
 
