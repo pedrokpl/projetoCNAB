@@ -5,28 +5,28 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-module.exports = {
+ module.exports = {
 
-  attributes: {
-  	id: {
-  		type: 'integer',
-  		primaryKey: true
-  	},
-	nome: {
-		type: 'text'
-	},
+ 	attributes: {
+ 		id: {
+ 			type: 'integer',
+ 			primaryKey: true
+ 		},
+ 		nome: {
+ 			type: 'text'
+ 		},
 
-	quantidadeCaracteres: {
-		type: 'integer'
-	},
+ 		quantidadeCaracteres: {
+ 			type: 'integer'
+ 		},
 
-	quantidadeLinhasCabecalho: {
-		type: 'integer'
-	},
+ 		quantidadeLinhasCabecalho: {
+ 			type: 'integer'
+ 		},
 
-	quantidadeLinhasRodape: {
-		type: 'integer'
-	},
+ 		quantidadeLinhasRodape: {
+ 			type: 'integer'
+ 		},
 
 	//Referencia ao banco
 	banco: {
@@ -50,10 +50,10 @@ module.exports = {
 		collection: 'dadoDocumento',
 		via: 'formatacao'
 	}
-  },
+},
 
-  autoPK: true,
-  autoCreatedAt: false,
-  autoUpdatedAt: false
+autoPK: true,
+autoCreatedAt: false,
+autoUpdatedAt: false
 };
 

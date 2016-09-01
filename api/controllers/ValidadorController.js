@@ -6,6 +6,10 @@
  */
 
 module.exports = {
-	
+	validar: function(req, res){
+		return res.send(ValidadorService.formataArquivo({
+			arquivo: req.param('arquivo')
+		}));
+	}
 };
 
