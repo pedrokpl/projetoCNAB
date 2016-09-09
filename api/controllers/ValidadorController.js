@@ -5,11 +5,12 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-module.exports = {
+ module.exports = {
 	validar: function(req, res){
 		return res.send(ValidadorService.formataArquivo({
-			arquivo: req.param('arquivo')
+			arquivo: req.param('arquivo'),
+			formatacao: req.param('formatacao')
 		}));
 	}
-};
+ };
 

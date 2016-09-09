@@ -5,8 +5,9 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 	$scope.bancos = [];
 	$scope.banco = {};
 	$scope.formatacoes = [];
-	$scope.formatacao = {};
 	$scope.valida = {};
+	$scope.valida.formatacao = {};
+	$scope.valida.arquivo = {};
 
 	$http.get('/banco/').success(function(resp){
 		$scope.bancos = resp;
@@ -14,17 +15,17 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 
 	this.carregaFormatacoes = function(){
 		if($scope.this.banco != null){
-			$scope.this.formatacoes = $scope.this.banco.formatacoes;
-			console.log($scope.this.formatacoes);
+			$scope.formatacoes = $scope.this.banco.formatacoes;
 		}
 	}
 
 	this.validar = function(){
+		$http.get('/formatacao/' + $scope.this.valida.formatacao.id).success(function(resp){
+			$scope.this.valida.formatacao = resp;
+		});
 		$http.post('/validador/validar', this.valida).success(function(resp){
 			console.log('Enviado!');
-			for (var i = 0; i < resp.length; i++) {
-				console.log(resp[i]);
-			}
+			console.log(resp);
 		});
 	};
 }]);
