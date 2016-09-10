@@ -29,6 +29,22 @@
                                 <label>Lote</label>
                                 <textarea class="form-control" rows="10"  ng-model="validaCtrl.valida.arquivo"></textarea>
                             </div>
+                            <div>
+                                <table border="1">
+                                    <tr>
+                                        <th>Campo</th>
+                                        <th>Valor</th>
+                                        <th>Válido</th>
+                                        <th>Caracteres</th>
+                                    </tr>
+                                    <tr ng-repeat="rowRetorno in retorno">
+                                        <td>{{rowRetorno.nome}}</td>
+                                        <td>{{rowRetorno.valor}}</td>
+                                        <td>{{rowRetorno.valido}}</td>
+                                        <td>{{rowRetorno.caracteres}}</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
                                 <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
