@@ -8,7 +8,7 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 	$scope.valida = {};
 	$scope.valida.formatacao = {};
 	$scope.valida.arquivo = {};
-	$scope.retorno = new Object();
+	$scope.retorno = [];
 
 	$http.get('/banco/').success(function(resp){
 		$scope.bancos = resp;
@@ -26,7 +26,6 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 		});
 		$http.post('/validador/validar', this.valida).success(function(resp){
 			console.log('Enviado!');
-			console.log(resp);
 			$scope.retorno = resp;
 		});
 	};

@@ -8,6 +8,7 @@ app.controller('DadoDocumentoController',['$scope', '$rootScope', '$http', '$loc
 
 	$http.get('/formatacao/' + $routeParams.id).success(function(resp){
 		$scope.dadosDocumento = resp.dadosDocumento;
+		console.log(resp);
 	});
 
 	this.buscar = function(){
