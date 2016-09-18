@@ -23,10 +23,10 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 	this.validar = function(){
 		$http.get('/formatacao/' + $scope.this.valida.formatacao.id).success(function(resp){
 			$scope.this.valida.formatacao = resp;
-		});
-		$http.post('/validador/validar', this.valida).success(function(resp){
-			console.log('Enviado!');
-			$scope.retorno = resp;
+			$http.post('/validador/validar', $scope.this.valida).success(function(resp){
+				console.log('Enviado!');
+				$scope.retorno = resp;
+			});
 		});
 	};
 }]);
