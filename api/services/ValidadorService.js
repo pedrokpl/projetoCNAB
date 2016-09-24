@@ -1,7 +1,8 @@
 module.exports = {
 
 	formataArquivo: function (options){
-		var retorno = [];
+		var retorno = new Object();
+		retorno.cabecalho = [];
 		var formatacao = options.formatacao;
 		var linhas = options.arquivo.split("\n");
 
@@ -14,15 +15,34 @@ module.exports = {
 				var campo = new Object();//Armazena os dados de cada campo
 				campo.nome = formatacao.dadosCabecalho[i].nome;
 				campo.valor = linhas[l].substring(inicio, fim);
-				campo.valido = true;
+				campo.valido = ValidadorService.validaCampo(campo.valor, formatacao.dadosCabecalho[i].tipoDoDado);
+				console.log(campo.valor, formatacao.dadosCabecalho[i].tipoDoDado, campo.valido);
 				campo.caracteres = (inicio + 1) + " ao " + fim;
 				arrayLinha[i] = campo;
 			}
 			var linhaRetornada = new Object();
 			linhaRetornada.linha = l;
 			linhaRetornada.campos = arrayLinha;
-			retorno[l] = linhaRetornada;
-		} 
+			retorno.cabecalho[l] = linhaRetornada;
+		}
+		//Montar o corpo do documento
+
+		//Montar o rodape
+
 		return retorno;
+	},
+
+	validaCampo: function(campo, tipo){
+		switch(tipo){
+			case 'Numérico':
+				return (!isNaN(campo));
+			break;
+			case 'Alfanumérico':
+				return true;
+			break;
+			default:
+			return false
+		}
+		return false;
 	}
 };
