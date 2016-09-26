@@ -31,40 +31,72 @@
                             </div>
                             <div>
                                 <table border="1">
-                                    <tr ng-repeat="rowRetorno in retorno">
-                                        <td>Linha {{rowRetorno.linha + 1}}</td>
+                                    <!-- INICIO - CABECALHO -->
+                                    <tr>
+                                    <th colspan="3">Cabeçalho</th>
+                                    </tr>
+                                    <tr ng-repeat="rowCabecalho in retorno.cabecalho">
+                                        <td>Linha {{rowCabecalho.linha + 1}}</td>
                                         <td>
                                             <table border="1">
                                                 <tr>
                                                     <th>Campo</th>
                                                     <th>Valor</th>
+                                                    <th>Tipo</th>
                                                     <th>Válido</th>
                                                     <th>Caracteres</th>
                                                 </tr>
-                                                <tr ng-repeat="campo in rowRetorno.campos">
-                                                    <td>{{campo.nome}}</td>
-                                                    <td>{{campo.valor}}</td>
-                                                    <td>{{campo.valido}}</td>
-                                                    <td>{{campo.caracteres}}</td>
+                                                <tr ng-repeat="campoCabecalho in rowCabecalho.campos">
+                                                    <td>{{campoCabecalho.nome}}</td>
+                                                    <td>{{campoCabecalho.valor}}</td>
+                                                    <td>{{campoCabecalho.tipo}}</td>
+                                                    <td>{{campoCabecalho.valido}}</td>
+                                                    <td>{{campoCabecalho.caracteres}}</td>
                                                 </tr>
                                             </table>
                                         </tr>
-                                    </table>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
-                                    <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
-                                </div>
-                            </form>
+                                        <!-- FIM - CABECALHO -->
+                                        <!-- INICIO - DOCUMENTO -->
+                                        <tr>
+                                            <th colspan="3">Documento</th>
+                                        </tr>
+                                        <tr ng-repeat="rowDocumento in retorno.documento">
+                                            <td>Linha {{rowDocumento.linha + 1}}</td>
+                                            <td>
+                                                <table border="1">
+                                                    <tr>
+                                                        <th>Campo</th>
+                                                        <th>Valor</th>
+                                                        <th>Tipo</th>
+                                                        <th>Válido</th>
+                                                        <th>Caracteres</th>
+                                                    </tr>
+                                                    <tr ng-repeat="campoDocumento in rowDocumento.campos">
+                                                        <td>{{campoDocumento.nome}}</td>
+                                                        <td>{{campoDocumento.valor}}</td>
+                                                        <td>{{campoDocumento.tipo}}</td>
+                                                        <td>{{campoDocumento.valido}}</td>
+                                                        <td>{{campoDocumento.caracteres}}</td>
+                                                    </tr>
+                                                </table>
+                                            </tr>
+                                            <!-- FIM - DOCUMENTO -->
+                                        </table>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
+                                        <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
                         </div>
-                        <!-- /.col-lg-6 (nested) -->
+                        <!-- /.row (nested) -->
                     </div>
-                    <!-- /.row (nested) -->
+                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel-body -->
+                <!-- /.panel -->
             </div>
-            <!-- /.panel -->
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+        <!-- /.row -->

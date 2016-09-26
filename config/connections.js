@@ -91,10 +91,10 @@ module.exports.connections = {
   ***************************************************************************/
   sailsMSSQLServer: {
     adapter: 'mssql4sails',
-    user: 'pedro',
-    password: 'kmkoo998',
-    host: 'PC-PEDRO',
-    //port: 9090,
+    user: 'kpl',
+    password: 'Ad40fs40',
+    host: 'MLBPGONCALVES',
+    port: 9090,
     database: 'CNAB'
   }
 
