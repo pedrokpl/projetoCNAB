@@ -27,6 +27,9 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 				console.log('Enviado!');
 				$scope.retorno = resp;
 				console.log($scope.retorno);
+				$('#dataTables-example').DataTable({
+					responsive: true
+				});
 			});
 		});
 	};

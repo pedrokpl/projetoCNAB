@@ -1,102 +1,115 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">VALIDADOR</h1>
-    </div>
-    <!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<h1 class="page-header">VALIDADOR</h1>
+	</div>
+	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                DADOS
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <form role="form" ng-controller="ValidaController as validaCtrl" ng-submit="validaCtrl.validar()">
-                            <div class="form-group">
-                                <label>Banco</label>
-                                <select class="form-control" ng-options="bancos.nome for bancos in bancos track by bancos.id" ng-model="validaCtrl.banco" ng-blur="validaCtrl.carregaFormatacoes()">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Formatação</label>
-                                <select class="form-control" ng-options="formatacoes.nome for formatacoes in formatacoes track by formatacoes.id" ng-model="validaCtrl.valida.formatacao">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Lote</label>
-                                <textarea class="form-control" rows="10"  ng-model="validaCtrl.valida.arquivo"></textarea>
-                            </div>
-                            <div>
-                                <table border="1">
-                                    <!-- INICIO - CABECALHO -->
-                                    <tr>
-                                    <th colspan="3">Cabeçalho</th>
-                                    </tr>
-                                    <tr ng-repeat="rowCabecalho in retorno.cabecalho">
-                                        <td>Linha {{rowCabecalho.linha + 1}}</td>
-                                        <td>
-                                            <table border="1">
-                                                <tr>
-                                                    <th>Campo</th>
-                                                    <th>Valor</th>
-                                                    <th>Tipo</th>
-                                                    <th>Válido</th>
-                                                    <th>Caracteres</th>
-                                                </tr>
-                                                <tr ng-repeat="campoCabecalho in rowCabecalho.campos">
-                                                    <td>{{campoCabecalho.nome}}</td>
-                                                    <td>{{campoCabecalho.valor}}</td>
-                                                    <td>{{campoCabecalho.tipo}}</td>
-                                                    <td>{{campoCabecalho.valido}}</td>
-                                                    <td>{{campoCabecalho.caracteres}}</td>
-                                                </tr>
-                                            </table>
-                                        </tr>
-                                        <!-- FIM - CABECALHO -->
-                                        <!-- INICIO - DOCUMENTO -->
-                                        <tr>
-                                            <th colspan="3">Documento</th>
-                                        </tr>
-                                        <tr ng-repeat="rowDocumento in retorno.documento">
-                                            <td>Linha {{rowDocumento.linha + 1}}</td>
-                                            <td>
-                                                <table border="1">
-                                                    <tr>
-                                                        <th>Campo</th>
-                                                        <th>Valor</th>
-                                                        <th>Tipo</th>
-                                                        <th>Válido</th>
-                                                        <th>Caracteres</th>
-                                                    </tr>
-                                                    <tr ng-repeat="campoDocumento in rowDocumento.campos">
-                                                        <td>{{campoDocumento.nome}}</td>
-                                                        <td>{{campoDocumento.valor}}</td>
-                                                        <td>{{campoDocumento.tipo}}</td>
-                                                        <td>{{campoDocumento.valido}}</td>
-                                                        <td>{{campoDocumento.caracteres}}</td>
-                                                    </tr>
-                                                </table>
-                                            </tr>
-                                            <!-- FIM - DOCUMENTO -->
-                                        </table>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
-                                        <button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-                        </div>
-                        <!-- /.row (nested) -->
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				DADOS
+			</div>
+			<div class="panel-body" ng-controller="ValidaController as validaCtrl">
+				<div class="row">
+					<div class="col-lg-6">
+						<form role="form" ng-submit="validaCtrl.validar()">
+							<div class="form-group">
+								<label>Banco</label>
+								<select class="form-control" ng-options="bancos.nome for bancos in bancos track by bancos.id" ng-model="validaCtrl.banco" ng-blur="validaCtrl.carregaFormatacoes()">
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Formatação</label>
+								<select class="form-control" ng-options="formatacoes.nome for formatacoes in formatacoes track by formatacoes.id" ng-model="validaCtrl.valida.formatacao">
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Lote</label>
+								<textarea class="form-control" rows="10"  ng-model="validaCtrl.valida.arquivo"></textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button>
+								<button type="reset" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-times"></i></button>
+							</div>
+						</form>
+					</div>
+
+					<!-- /.col-lg-6 (nested) -->
+				</div>
+				<!-- /.row (nested) -->
+				<!-- INICIO - TABELA -->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								DataTables Advanced Tables
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+									<thead>
+										<tr>
+											<th>Rendering engine</th>
+											<th>Browser</th>
+											<th>Platform(s)</th>
+											<th>Engine version</th>
+											<th>CSS grade</th>
+										</tr>
+									</thead>
+										<tbody ng-repeat="rowCabecalho in retorno.cabecalho">
+											<tr>
+												<td class="info center" colspan="5">Cabeçalho</td>
+											</tr>
+											<tr class="gradeA odd {{rowCampoCabecalho.valido ? '' : 'danger'}}" role="row" ng-repeat="rowCampoCabecalho in rowCabecalho.campos">
+												<td class="sorting_1">{{rowCampoCabecalho.nome}}</td>
+												<td>{{rowCampoCabecalho.valor}}</td>
+												<td>{{rowCampoCabecalho.tipo}}</td>
+												<td class="center">{{rowCampoCabecalho.valido}}</td>
+												<td class="center">{{rowCampoCabecalho.caracteres}}</td>
+											</tr>
+										</tbody>
+										<tbody ng-repeat="rowDocumento in retorno.documento">
+											<tr>
+												<td class="info center" colspan="5">Documento</td>
+											</tr>
+											<tr class="gradeA odd {{rowCampoDocumento.valido ? '' : 'danger'}}" role="row" ng-repeat="rowCampoDocumento in rowDocumento.campos">
+												<td class="sorting_1">{{rowCampoDocumento.nome}}</td>
+												<td>{{rowCampoDocumento.valor}}</td>
+												<td>{{rowCampoDocumento.tipo}}</td>
+												<td class="center">{{rowCampoDocumento.valido}}</td>
+												<td class="center">{{rowCampoDocumento.caracteres}}</td>
+											</tr>
+										</tbody>
+										<tbody ng-repeat="rowRodape in retorno.rodape">
+											<tr>
+												<td class="info center" colspan="5">Rodapé</td>
+											</tr>
+											<tr class="gradeA odd {{rowCampoRodape.valido ? '' : 'danger'}}" role="row" ng-repeat="rowCampoRodape in rowRodape.campos">
+												<td class="sorting_1">{{rowCampoRodape.nome}}</td>
+												<td>{{rowCampoRodape.valor}}</td>
+												<td>{{rowCampoRodape.tipo}}</td>
+												<td class="center">{{rowCampoRodape.valido}}</td>
+												<td class="center">{{rowCampoRodape.caracteres}}</td>
+											</tr>
+										</tbody>
+								</table>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+				<!-- /.row -->
+				<!-- FIM - TABELA -->
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
