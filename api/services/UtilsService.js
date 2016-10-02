@@ -24,5 +24,20 @@ module.exports = {
 		}while(array.length > 0);
 		retorno.push(aux);
 		return retorno;
+	},
+
+	validaData: function(dia, mes, ano){
+		if(mes < 1 || mes > 12){
+			return false;
+		}else if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
+			if(dia < 1 || dia > 31){
+				return false
+			}
+		}else{
+			if(dia < 1 || dia > 30){
+				return false
+			}
+		}
+		return true;
 	}
 }

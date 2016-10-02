@@ -26,10 +26,6 @@ app.controller('ValidaController',['$scope', '$rootScope', '$http', '$location',
 			$http.post('/validador/validar', $scope.this.valida).success(function(resp){
 				console.log('Enviado!');
 				$scope.retorno = resp;
-				console.log($scope.retorno);
-				$('#dataTables-example').DataTable({
-					responsive: true
-				});
 			});
 		});
 	};

@@ -76,7 +76,7 @@ module.exports = {
 			return true;
 			break;
 			case 'Data':
-			return false;
+			return UtilsService.validaData(campo.substring(0,2), campo.substring(2,4), campo.substring(4,8));
 			break;
 			default:
 			return false
