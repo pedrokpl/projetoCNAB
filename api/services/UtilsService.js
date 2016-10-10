@@ -13,7 +13,7 @@ module.exports = {
 		var ultimo = array[0][key];
 		aux.push(array.shift());
 		var i = 0;
-		do{
+		while(array.length > 0){
 			if(array[0][key] != ultimo){
 				ultimo = array[0][key];
 				retorno.push(aux);
@@ -21,7 +21,7 @@ module.exports = {
 				i = 0
 			}
 			aux.push(array.shift());
-		}while(array.length > 0);
+		};
 		retorno.push(aux);
 		return retorno;
 	},

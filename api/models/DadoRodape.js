@@ -38,7 +38,7 @@ module.exports = {
 	}
   },
 
-  autoPK: true,
+  autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false
 };

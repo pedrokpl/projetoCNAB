@@ -43,6 +43,9 @@ app.controller('FormatacaoEditaController', ['$http', '$routeParams', '$scope', 
 	});
 
 	this.editar = function(id){
+		delete $scope.formatacao.dadosCabecalho;
+		delete $scope.formatacao.dadosRodape;
+		delete $scope.formatacao.dadosDocumento;
 		$http.put('/formatacao/' + id, $scope.formatacao).success(function(resp){
 			console.log('Editado!');
 			$location.path('/listaformatacoes');
