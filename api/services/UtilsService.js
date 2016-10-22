@@ -39,5 +39,9 @@ module.exports = {
 			}
 		}
 		return true;
+	},
+
+	validaLista: function(valor, lista){
+		return (lista.search(valor) > -1);
 	}
 }
