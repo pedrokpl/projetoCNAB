@@ -32,6 +32,13 @@ module.exports = {
 		type: 'text'
 	},
 
+	obrigatorio: {
+		type: 'boolean',
+		defaultsTo: function(){
+			return false;
+		}
+	},
+
 	//Referencia a formatacao
 	formatacao: {
 		model: 'formatacao'
