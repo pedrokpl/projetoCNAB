@@ -54,4 +54,8 @@ module.exports.routes = {
     view: 'criarbanco'
   } 
   */
+  'post /login': 'AuthController.login',
+
+  '/logout': 'AuthController.logout'
+
 };

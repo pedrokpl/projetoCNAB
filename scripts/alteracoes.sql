@@ -15,3 +15,10 @@ add obrigatorio bit
 
 alter table dadoRodape
 add listaDeValores varchar(250)
+
+create table [user](
+	id			int primary key identity,
+	email		varchar(250) unique not null,
+	password	varchar(250) not null
+)
+
