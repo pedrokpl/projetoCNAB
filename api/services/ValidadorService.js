@@ -55,7 +55,7 @@ module.exports = {
 				campo.nome = dadosLinha[indice][i].nome;
 				campo.valor = conteudo[l].substring(inicio, fim);
 				campo.tipo = dadosLinha[indice][i].tipoDoDado;
-				campo.valido = (ValidadorService.validaTipoCampo(campo.valor, dadosLinha[indice][i].tipoDoDado) && ValidadorService.validaObrigatoriedadeCampo(campo.valor, dadosLinha[indice][i].obrigatorio));
+				campo.valido = (ValidadorService.validaTipoCampo(campo.valor, dadosLinha[indice][i].tipoDoDado, dadosLinha[indice][i].listaDeValores) && ValidadorService.validaObrigatoriedadeCampo(campo.valor, dadosLinha[indice][i].obrigatorio));
 				campo.caracteres = (inicio + 1) + " ao " + fim;
 				arrayLinha[i] = campo;
 			}
@@ -67,7 +67,7 @@ module.exports = {
 		return retorno;
 	},
 
-	validaTipoCampo: function(campo, tipo){
+	validaTipoCampo: function(campo, tipo, lista){
 		switch(tipo){
 			case 'Numérico':
 			return (!isNaN(campo));
@@ -77,6 +77,9 @@ module.exports = {
 			break;
 			case 'Data':
 			return UtilsService.validaData(campo.substring(0,2), campo.substring(2,4), campo.substring(4,8));
+			break;
+			case 'Lista':
+			return UtilsService.validaLista(campo, lista);
 			break;
 			default:
 			return false

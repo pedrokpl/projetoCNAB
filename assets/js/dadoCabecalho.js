@@ -24,7 +24,6 @@ app.controller('DadoCabecalhoController',['$scope', '$rootScope', '$http', '$loc
 			});
 		}else{
 			$http.put('/dadoCabecalho/' + this.dadoCabecalho.id, this.dadoCabecalho).success(function(resp){
-				console.log(this.dadoCabecalho);
 				console.log('Editado!');
 			});
 		}
